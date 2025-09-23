@@ -1,0 +1,46 @@
+.variantOutlined {
+    background-color: transparent;
+    border: 1px solid lightgray;
+    color: black;
+    border-radius: 4px;
+}
+
+.variantFilled {
+    color: black;
+    background-color: #F0F0F0;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.variantStandard {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    color: black;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.sizeSmall {
+    width: 188px;
+    height: 36px;
+}
+
+.sizeNormal {
+    width: 189px;
+    height: 53px;
+}
+
+.marginNone {
+    margin-top: 0px;
+}
+
+.marginDense {
+    margin: 5px 0;
+}
+
+.marginNormal {
+    margin: 15px 0;
+}

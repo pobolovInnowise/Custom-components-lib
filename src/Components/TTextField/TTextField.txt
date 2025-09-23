@@ -1,0 +1,47 @@
+| Проп                  | Тип                                                                                 | Значения / по умолчанию           | Что делает                                                                                                                        |
+| --------------------- | ----------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `variant`             | `"filled" \| "outlined" \| "standard"`                                              | `outlined` по умолчанию           | Вид оформления поля (рамка, заливка, подчёркивание) ([mui.com][1])                                                                |
+| `size`                | `"small" \| "medium"`                                                               | `medium`                          | Размер: высота, внутренние отступы ([mui.com][2])                                                                                 |
+| `margin`              | `"none" \| "dense" \| "normal"`                                                     | `none`                            | Вертикальный отступ поля/обёртки (FormControl) ([mui.com][1])                                                                     |
+| `color`               | `"primary" \| "secondary" \| "error" \| "info" \| "success" \| "warning" \| string` | `primary` (или тема по-умолчанию) | Цвет акцентных частей: метки, рамки, подчёркивания и т.д. ([mui.com][2])                                                          |
+| `fullWidth`           | `boolean`                                                                           | `false`                           | Если `true` — поле растягивается на всю ширину контейнера ([mui.com][2])                                                          |
+| `disabled`            | `boolean`                                                                           | `false`                           | Поле неактивно, нельзя вводить, визуально показывает, что disabled ([mui.com][2])                                                 |
+| `error`               | `boolean`                                                                           | `false`                           | Включает отображение ошибки (цвет, стиль) ([mui.com][2])                                                                          |
+| `required`            | `boolean`                                                                           | `false`                           | Метка обязательного поля + HTML атрибут `required` ([v4.mui.com][3])                                                              |
+| `helperText`          | `node` (текст / React-элемент)                                                      | —                                 | Подсказка или сообщение об ошибке под полем ([mui.com][2])                                                                        |
+| `label`               | `node`                                                                              | —                                 | Текст метки над или внутри поля ([mui.com][2])                                                                                    |
+| `placeholder`         | `string`                                                                            | —                                 | Серый текст, появляющийся в поле, когда нет значения ([v4.mui.com][3])                                                            |
+| `value`               | `any`                                                                               | —                                 | Управляемое значение поля (controlled) ([v4.mui.com][3])                                                                          |
+| `defaultValue`        | `any`                                                                               | —                                 | Начальное значение (uncontrolled компонент) ([mui.com][2])                                                                        |
+| `onChange`            | `function(event) => void`                                                           | —                                 | Колбэк при изменении текста пользователем ([v4.mui.com][3])                                                                       |
+| `type`                | `string`                                                                            | `"text"` по умолчанию             | HTML-type поля: text, password, email и др. ([v4.mui.com][3])                                                                     |
+| `multiline`           | `boolean`                                                                           | `false`                           | Если `true`, поле превращается в многострочное (textarea) ([mui.com][1])                                                          |
+| `rows`                | `number \| string`                                                                  | —                                 | Количество строк, если `multiline` включён (deprecated в некоторых версиях, предпочитают `minRows` / `maxRows`) ([v4.mui.com][3]) |
+| `minRows`             | `number \| string`                                                                  | —                                 | Минимальное число строк в `multiline` режиме ([v4.mui.com][3])                                                                    |
+| `maxRows`             | `number \| string`                                                                  | —                                 | Максимальное число строк в `multiline` режиме ([v4.mui.com][3])                                                                   |
+| `name`                | `string`                                                                            | —                                 | HTML-атрибут `name` поля формы ([v4.mui.com][3])                                                                                  |
+| `autoComplete`        | `string`                                                                            | —                                 | Для браузерной автозаписи/подсказки ([mui.com][2])                                                                                |
+| `autoFocus`           | `boolean`                                                                           | `false`                           | Если `true` поле получает фокус сразу после mount ([mui.com][2])                                                                  |
+| `InputProps`          | `object`                                                                            | —                                 | Пропсы, передаваемые вложенному Input / FilledInput / OutlinedInput компоненту ([mui.com][2])                                     |
+| `inputProps`          | `object`                                                                            | —                                 | Пропсы к самому HTML `<input>` элементу (типа атрибутов) ([mui.com][2])                                                           |
+| `InputLabelProps`     | `object`                                                                            | —                                 | Пропсы, передаваемые компоненту метки (`InputLabel`) ([mui.com][2])                                                               |
+| `FormHelperTextProps` | `object`                                                                            | —                                 | Для дополнительного текста помощи / ошибки под полем ([mui.com][2])                                                               |
+
+
+
+
+
+Минимальный набор дефолтных HTML input атрибутов:
+type
+value / defaultValue
+placeholder
+onChange
+disabled
+name
+required
+autoFocus
+maxLength
+(опционально: id, className, style)
+
+И дополнительный проп:
+error: boolean → если true, то поле должно подсвечиваться как с ошибкой (например, красная рамка).
