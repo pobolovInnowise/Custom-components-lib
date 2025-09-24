@@ -1,0 +1,21 @@
+
+.button_text {
+    background-color: transparent;
+    color: #1565C0;
+   border: none;
+}
+
+.button_contained {
+    background-color: #1565C0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.button_outlined {
+    background-color: white;
+    color: #1565C0;
+    border: 1px solid #1565C0 ;
+    border-radius: 3px;
+}
+
