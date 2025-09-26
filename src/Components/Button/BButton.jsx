@@ -4,19 +4,28 @@ import styles from "./BButton.module.css";
 const BButton = (props) => {
 
     let clazz = '';
-    if (props.variant === 'text') clazz = styles.button_text;
-    else if(props.variant === 'contained') clazz = styles.button_contained;
-    else if(props.variant === 'outlined') clazz = styles.button_outlined;
+    let buttonVariant = 'buttonText'; //default value
+    if(props.variant === 'text') buttonVariant = 'buttonText';
+    else if(props.variant === 'contained') buttonVariant = 'buttonContained';
+    else if(props.variant === 'outlined') buttonVariant = 'buttonOutlined';
+
+    let buttonSize = 'sizeSmall';//default value
+    if(props.size === 'small') buttonSize = 'sizeSmall';
+    else if(props.size === 'medium') buttonSize = 'sizeMedium';
+    else if(props.size === 'large') buttonSize = 'sizeLarge';
+
+
+    clazz = `${styles[buttonVariant]} ${styles[buttonSize]} `;
+
 
     return (
-        <>
-            <button className={clazz}>
-                {props.children}
-            </button>
-        </>
-
-    )
-}
+        <button className={clazz} {...props}>
+            {props.children}
+        </button>
+    );
+};
 
 
 export default BButton;
+
+
