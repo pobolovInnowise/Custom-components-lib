@@ -1,30 +1,30 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import HTMLWebpackPlugin from "html-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-    mode: "development",
-    entry: "./src/index.tsx",
+    mode: "production", // для npm сборки ставим production
+    entry: "./src/index.ts", // точка входа всех компонентов
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].[fullhash].js",
-    },
-    devServer: {
-        port: 3000,
-        historyApiFallback: true,
-        open: true,
+        filename: "index.js",
+        library: {
+            name: "MyComponentLibrary",
+            type: "umd", // универсальный модуль
+        },
+        globalObject: "this",
+        clean: true,
     },
     resolve: {
         extensions: [".tsx", ".ts", ".jsx", ".js"],
     },
-    plugins: [
-        new HTMLWebpackPlugin({ template: "./src/index.html" }),
-        new CleanWebpackPlugin(),
-    ],
+    externals: {
+        react: "react",
+        "react-dom": "react-dom"
+    },
     module: {
         rules: [
             {
@@ -54,4 +54,7 @@ export default {
             },
         ],
     },
+    plugins: [
+        new CleanWebpackPlugin(),
+    ],
 };
