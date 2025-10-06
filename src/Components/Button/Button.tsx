@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
 import * as styles from './Button.module.css';
 
 type ButtonVariant = 'text' | 'contained' | 'outlined';
 type ButtonSize = 'small' | 'medium' | 'large';
+
+console.log(styles);
 
 type ButtonProps = {
     variant?: ButtonVariant;

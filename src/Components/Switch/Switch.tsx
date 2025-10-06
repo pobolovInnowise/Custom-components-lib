@@ -1,21 +1,7 @@
-// import React from 'react';
-// import * as styles from './Switch.module.css';
-//
-//
-// const Switch = (props) => {
-//
-//     return (
-//     <label className={styles.switch}>
-//         <input type="checkbox" role='switch' checked={props.checked} onChange={props.onChange} disabled={props.disabled}/>
-//             <span className={styles.slider}></span>
-//     </label>
-//
-//     );
-// };
-//
-// export default Switch;
 import React from 'react';
 import * as styles from './Switch.module.css';
+
+type CSSModule = { [className: string]: string };
 
 type SwitchProps = {
     checked?: boolean;
@@ -36,8 +22,10 @@ const Switch: React.FC<SwitchProps> = ({
                                            id,
                                            value,
                                        }) => {
+    const s = styles as unknown as CSSModule;
+
     return (
-        <label className={(styles as any).switch}>
+        <label className={s.switch}>
             <input
                 type="checkbox"
                 role="switch"
@@ -49,7 +37,7 @@ const Switch: React.FC<SwitchProps> = ({
                 id={id}
                 value={value}
             />
-            <span className={(styles as any).slider}></span>
+            <span className={s.slider}></span>
         </label>
     );
 };

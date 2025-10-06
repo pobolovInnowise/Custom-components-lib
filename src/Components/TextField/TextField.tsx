@@ -1,38 +1,3 @@
-// import * as React from 'react';
-// import * as styles from './TextField.module.css'
-//
-// function TextField(props) {
-//     let clazz = '';
-//     let classVariant = 'variantOutlined'; //default value
-//     if(props.variant === 'filled') classVariant = 'variantFilled';
-//     else if(props.variant === 'standard') classVariant = 'variantStandard';
-//     else if(props.variant === 'outlined') classVariant = 'variantOutlined';
-//
-//     let classSize = 'sizeSmall';//default value
-//     if(props.size === 'normal') classSize = 'sizeNormal';
-//     else if(props.size === 'small') classSize = 'sizeSmall';
-//
-//     let classMargin = 'marginNone'; //default value
-//     if(props.margin === 'normal') classMargin = 'marginNormal';
-//     else if(props.margin === 'dense') classMargin = 'marginDense';
-//     else if(props.margin === 'none') classMargin = 'marginNone';
-//
-//
-//
-//     clazz = `${styles[classVariant]} ${styles[classSize]} ${styles[classMargin]}`;
-//
-//
-//     return (
-//         <input className={clazz} type="text" placeholder={props.label}
-//                disabled={props.disabled} name={props.name} required={props.required}
-//                autoFocus={props.autoFocus} onChange={props.onChange}/>
-//     );
-// }
-//
-// export default TextField;
-//
-
-
 import React from 'react';
 import * as styles from './TextField.module.css';
 
@@ -67,7 +32,7 @@ const TextField: React.FC<TextFieldProps> = ({
     if (variant === 'filled') classVariant = 'variantFilled';
     else if (variant === 'standard') classVariant = 'variantStandard';
 
-    let classSize: 'sizeSmall' | 'sizeNormal' = size === 'normal' ? 'sizeNormal' : 'sizeSmall';
+    const classSize: 'sizeSmall' | 'sizeNormal' = size === 'normal' ? 'sizeNormal' : 'sizeSmall';
 
     let classMargin: 'marginNone' | 'marginDense' | 'marginNormal' = 'marginNone';
     if (margin === 'dense') classMargin = 'marginDense';

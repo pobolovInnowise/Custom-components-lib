@@ -1,81 +1,25 @@
-// const path = require('path');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const HTMLWebpackPlugin = require('html-webpack-plugin');
-//
-// module.exports = {
-//     mode: 'development',
-//     entry: './src/index.tsx',
-//     output: {
-//         path: path.resolve(__dirname, 'dist'),
-//         filename: "[name].[hash].js"
-//     },
-//     devServer: {
-//         port: 3000,
-//     },
-//     resolve: {
-//         // Убедитесь, что .jsx и .tsx стоят первыми для корректной работы с React/TSX
-//         extensions: ['.tsx', '.ts', '.jsx', '.js'],
-//     },
-//     plugins: [
-//         new HTMLWebpackPlugin({template: "./src/index.html"}),
-//         new CleanWebpackPlugin()
-//     ],
-//     module: {
-//         rules: [
-//             // --- ПРАВИЛО 1: CSS Modules ---
-//             {
-//                 test: /\.module\.css$/i,
-//                 use: [
-//                     "style-loader",
-//                     {
-//                         loader: "css-loader",
-//                         options: {
-//
-//                             modules: {
-//                                 localIdentName: '[name]__[local]--[hash:base64:5]',
-//                             },
-//                             importLoaders: 1
-//                         }
-//                     }
-//                 ]
-//             },
-//
-//             // --- ПРАВИЛО 2: Обычный CSS (глобальный) ---
-//             {
-//                 test: /\.css$/i,
-//                 exclude: /\.module\.css$/,
-//                 use: ["style-loader", "css-loader"]
-//             },
-//
-//
-//             // Внутри webpack.config.js
-//             {
-//                 test: /\.(ts|tsx|js|jsx)$/,
-//                 exclude: /node_modules/,
-//                 use: 'babel-loader'
-//             }
-//         ]
-//     }
-// }
+import path from "path";
+import { fileURLToPath } from "url";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import HTMLWebpackPlugin from "html-webpack-plugin";
 
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-module.exports = {
-    mode: 'development',
-    entry: './src/index.tsx', // ⚡ заменил на tsx
+export default {
+    mode: "development",
+    entry: "./src/index.tsx",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: "[name].[fullhash].js", // ⚡ заменил [hash] → [fullhash] (webpack 5 warning fix)
+        path: path.resolve(__dirname, "dist"),
+        filename: "[name].[fullhash].js",
     },
     devServer: {
         port: 3000,
-        historyApiFallback: true, // ⚡ для SPA
-        open: true, // автоматически открывает браузер
+        historyApiFallback: true,
+        open: true,
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js'],
+        extensions: [".tsx", ".ts", ".jsx", ".js"],
     },
     plugins: [
         new HTMLWebpackPlugin({ template: "./src/index.html" }),
@@ -83,7 +27,6 @@ module.exports = {
     ],
     module: {
         rules: [
-            // --- CSS Modules ---
             {
                 test: /\.module\.css$/i,
                 use: [
@@ -92,24 +35,22 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             modules: {
-                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                                localIdentName: "[name]__[local]--[hash:base64:5]",
                             },
                             importLoaders: 1,
                         },
                     },
                 ],
             },
-            // --- Глобальные CSS ---
             {
                 test: /\.css$/i,
                 exclude: /\.module\.css$/,
                 use: ["style-loader", "css-loader"],
             },
-            // --- JS / TS / JSX / TSX ---
             {
                 test: /\.(ts|tsx|js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                use: "babel-loader",
             },
         ],
     },
