@@ -4,7 +4,7 @@ import Checkbox from './Components/Checkbox/Checkbox';
 import Select from './Components/Select/Select';
 import TextField from './Components/TextField/TextField';
 import Switch from './Components/Switch/Switch';
-import Modal from "./Components/Modal/Modal";
+import Modal from './Components/Modal/Modal';
 
 const App: React.FC = () => {
 
