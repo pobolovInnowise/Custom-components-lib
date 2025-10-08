@@ -1,5 +1,6 @@
 import path from "path";
 import { fileURLToPath } from "url";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -7,13 +8,13 @@ const __dirname = path.dirname(__filename);
 
 export default {
     mode: "production",
-    entry: "./src/index.ts", // ← здесь экспортируй все компоненты
+    entry: "./src/index.ts",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
         library: {
-            name: "MyComponentLibrary", // можешь поменять на своё имя
-            type: "umd", // универсальный формат — работает в CJS/ESM
+            name: "MyComponentLibrary",
+            type: "umd",
         },
         clean: true,
     },
@@ -34,7 +35,7 @@ export default {
             {
                 test: /\.module\.css$/i,
                 use: [
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: {
@@ -49,10 +50,15 @@ export default {
             {
                 test: /\.css$/i,
                 exclude: /\.module\.css$/,
-                use: ["style-loader", "css-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
         ],
     },
-    plugins: [new CleanWebpackPlugin()],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "index.css",
+        }),
+    ],
     devtool: "source-map",
 };

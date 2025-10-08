@@ -1,0 +1,6 @@
+src/**/*.test.*
+src/**/*.stories.*
+webpack.config.js
+webpack.lib.js
+tsconfig*.json
+node_modules/
