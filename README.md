@@ -1,14 +1,12 @@
  My Component Library
 
 1)Установите библиотеку через npm:
-npm install my-component-library-pobolov
+npm install custom-library-pobolov
 
-2)Для работы библиотеки требуется React и ReactDOM. Если они не установлены в проекте-потребителе, установите их:
-npm install react react-dom
-
-3)Пример минимального приложения с компонентами:
+2)Пример минимального приложения с компонентами:
 import React, { useState } from 'react';
-import { Button, Modal, Checkbox, Select, TextField, Switch } from 'my-component-library';
+import { Button, Modal, Checkbox, Select, TextField, Switch } from 'custom-library-pobolov';
+import "custom-library-pobolov/dist/index.css";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
