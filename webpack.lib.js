@@ -1,26 +1,28 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import HTMLWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-    mode: "development", // для локального теста
-    entry: "./src/index.tsx", // запускаем твой App
+    mode: "production",
+    entry: "./src/index.ts", // ← здесь экспортируй все компоненты
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js",
-    },
-    devServer: {
-        port: 3000,
-        open: true,
-        hot: true,
-        historyApiFallback: true,
+        filename: "index.js",
+        library: {
+            name: "MyComponentLibrary", // можешь поменять на своё имя
+            type: "umd", // универсальный формат — работает в CJS/ESM
+        },
+        clean: true,
     },
     resolve: {
         extensions: [".tsx", ".ts", ".jsx", ".js"],
+    },
+    externals: {
+        react: "react",
+        "react-dom": "react-dom",
     },
     module: {
         rules: [
@@ -51,10 +53,6 @@ export default {
             },
         ],
     },
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: "./src/index.html", // временный html
-        }),
-        new CleanWebpackPlugin(),
-    ],
+    plugins: [new CleanWebpackPlugin()],
+    devtool: "source-map",
 };
