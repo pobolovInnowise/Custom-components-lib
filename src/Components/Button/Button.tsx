@@ -4,8 +4,6 @@ import * as styles from './Button.module.css';
 type ButtonVariant = 'text' | 'contained' | 'outlined';
 type ButtonSize = 'small' | 'medium' | 'large';
 
-console.log(styles);
-
 type ButtonProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -14,23 +12,31 @@ type ButtonProps = {
   children?: React.ReactNode;
 };
 
-const Button: React.FC<ButtonProps> = (props) => {
-  let buttonVariantClass: 'buttonText' | 'buttonContained' | 'buttonOutlined' =
-    'buttonText';
-  if (props.variant === 'contained') buttonVariantClass = 'buttonContained';
-  else if (props.variant === 'outlined') buttonVariantClass = 'buttonOutlined';
+const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+                                                                                           variant = 'text',
+                                                                                           size = 'small',
+                                                                                           disabled = false,
+                                                                                           children,
+                                                                                           ...rest
+                                                                                       }) => {
+    const variantClass =
+        variant === 'contained' ? styles.buttonContained :
+            variant === 'outlined' ? styles.buttonOutlined :
+                styles.buttonText;
 
-  let buttonSizeClass: 'sizeSmall' | 'sizeMedium' | 'sizeLarge' = 'sizeSmall';
-  if (props.size === 'medium') buttonSizeClass = 'sizeMedium';
-  else if (props.size === 'large') buttonSizeClass = 'sizeLarge';
+    const sizeClass =
+        size === 'medium' ? styles.sizeMedium :
+            size === 'large' ? styles.sizeLarge :
+                styles.sizeSmall;
 
-  const clazz = `${styles[buttonVariantClass as keyof typeof styles]} ${styles[buttonSizeClass as keyof typeof styles]}`;
+    const clazz = `${variantClass} ${sizeClass}`;
 
-  return (
-    <button className={clazz} {...props} onClick={props.onClick}>
-      {props.children}
-    </button>
-  );
+    return (
+        <button className={clazz} disabled={disabled} {...rest}>
+            {children}
+        </button>
+    );
 };
 
 export default Button;
+

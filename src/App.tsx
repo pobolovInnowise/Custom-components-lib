@@ -11,35 +11,35 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Button disabled={false} variant="contained" size="small">
-        small
-      </Button>
-
-      <Checkbox disabled={false} name="checkbox1" value="value1" id="cb1" />
-
-      <Select options={['summer', 'autumn', 'winter', 'spring']} />
-
-      <Switch disabled={false} name="switch1" value="switchValue" id="sw1" />
-
-      <TextField
-        label="qwerty"
-        variant="outlined"
-        size="normal"
-        margin="none"
-        disabled={false}
-        name="textfield1"
-        required={false}
-        autoFocus={false}
-      />
-      <div>
-        <Button variant="text" size="small" onClick={() => setOpen(true)}>
-           modal
+        <Button disabled={false} variant="contained" size="small">
+            small
         </Button>
 
-        <Modal open={open} handleClose={() => setOpen(false)}>
-          <h2>hey!</h2>
-          <p>this is modal</p>
-        </Modal>
+        <Checkbox disabled={false} name="checkbox1" value="value1" id="cb1" />
+
+        <Select options={['summer', 'autumn', 'winter', 'spring']} />
+
+        <Switch disabled={false} name="switch1" value="switchValue" id="sw1" />
+
+        <TextField
+            label="qwerty"
+            variant="filled"
+            fieldSize="normal"
+            margin="none"
+            disabled={false}
+            name="textfield1"
+            required={false}
+            autoFocus={false}
+        />
+        <div>
+            <Button variant="text" size="small" onClick={() => setOpen(true)}>
+                modal
+            </Button>
+
+            <Modal open={open} handleClose={() => setOpen(false)}>
+                <h2>hey!</h2>
+                <p>this is modal</p>
+            </Modal>
       </div>
     </div>
   );
