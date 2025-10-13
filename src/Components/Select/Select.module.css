@@ -1,0 +1,60 @@
+.wrapper {
+    position: relative;
+    width: 200px;
+    user-select: none;
+}
+
+.trigger {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    transition: transform 0.3s;
+}
+
+.arrowOpen {
+    transform: rotate(180deg);
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: none;
+}
+
+.optionsOpen {
+    display: block;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover,
+.optionSelected {
+    background-color: #f0f0f0;
+}

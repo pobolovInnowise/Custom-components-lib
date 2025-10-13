@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Button disabled={false} variant="text" size="small">
+      <Button disabled={false} variant="contained" size="small">
         small
       </Button>
 
@@ -33,12 +33,12 @@ const App: React.FC = () => {
       />
       <div>
         <Button variant="text" size="small" onClick={() => setOpen(true)}>
-          Open modal
+           modal
         </Button>
 
         <Modal open={open} handleClose={() => setOpen(false)}>
           <h2>hey!</h2>
-          <p>this id modal</p>
+          <p>this is modal</p>
         </Modal>
       </div>
     </div>
