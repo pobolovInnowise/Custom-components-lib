@@ -23,6 +23,19 @@
     border-top-right-radius: 4px;
 }
 
+.variantOutlined:hover {
+    border-color: #888;
+}
+
+
+.variantFilled:hover {
+    background-color: #e0e0e0;
+}
+
+.variantStandard:hover {
+    border-bottom-color: #555;
+}
+
 .sizeSmall {
     width: 188px;
     height: 36px;

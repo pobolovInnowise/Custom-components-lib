@@ -30,3 +30,13 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.checkbox:hover:not(:checked):not(:disabled) {
+    border-color: #155a9c;
+    background-color: #e6f0fa;
+}
+
+
+.checkbox:checked:hover:not(:disabled) {
+    background-color: #1665b2;
+}

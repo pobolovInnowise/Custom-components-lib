@@ -23,7 +23,10 @@
     transition: 0.4s;
 }
 
-/* сам "ползунок" */
+.switch:hover .slider {
+    background-color: #b3b3b3;
+}
+
 .slider:before {
     position: absolute;
     content: "";
@@ -36,11 +39,15 @@
     transition: 0.4s;
 }
 
+/* checked состояние */
 input:checked + .slider {
     background-color: #1a76d2;
+}
+
+.switch:hover input:checked + .slider {
+    background-color: #155a9c;
 }
 
 input:checked + .slider:before {
     transform: translateX(22px);
 }
-
